@@ -106,83 +106,98 @@ namespace HomeWork3
         }
         static void Main(string[] args)
         {
-            //Задача 1
-            Console.WriteLine("Task 1");
+            //  Задача 1
+            //Console.WriteLine("Task 1");
 
-            string number;
-            Console.WriteLine("Enter a 4 digit number");
-            number = Console.ReadLine();
-            if (number.Length == 4)
-            {
-                for (int i = number.Length - 1; i >= 0; i--)
-                {
-                    Console.Write(number[i]);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error");
-            }
-            Console.WriteLine("\n");
-
-            Console.WriteLine("Task2");
-
-            Console.WriteLine("Enter a 6 digit number");
-            string number2;
-            int tmp;
-            number2 = Console.ReadLine();
-            if (number2.Length == 6)
-            {
-                for (int i = 0; i < number2.Length; i++)
-                {
-                    tmp = Convert.ToInt32(number2[i]);
-                    if (number2[i] % 2 == 0)
-                    {
-                        Console.WriteLine(number2[i]);
-                    }
-
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error");
-            }
-
-
+            //string number;
+            //Console.WriteLine("Enter a 4 digit number");
+            //number = Console.ReadLine();
+            //if (number.Length == 4)
+            //{
+            //    for (int i = number.Length - 1; i >= 0; i--)
+            //    {
+            //        Console.Write(number[i]);
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Error");
+            //}
+            //Console.WriteLine("\n");
             //Задача 2
-            Console.WriteLine("Task3");
+            //Console.WriteLine("Task2");
+
+            //Console.WriteLine("Enter a 6 digit number");
+            //string number2;
+            //int tmp;
+            //number2 = Console.ReadLine();
+            //if (number2.Length == 6)
+            //{
+            //    for (int i = 0; i < number2.Length; i++)
+            //    {
+            //        tmp = Convert.ToInt32(number2[i]);
+            //        if (number2[i] % 2 == 0)
+            //        {
+            //            Console.WriteLine(number2[i]);
+            //        }
+
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Error");
+            //}
 
 
-            Console.WriteLine("Enter a key");
-            ConsoleKeyInfo key = Console.ReadKey();
-            DateTime startTime = DateTime.Now;
 
-            while (true)
-            {
-                DateTime startTime1 = DateTime.Now;
-                key = Console.ReadKey();
-
-                if (key.Key == ConsoleKey.Enter)
-                {
-                    DateTime stopTime1 = DateTime.Now;
-                    TimeSpan timeSpan1 = stopTime1 - startTime1;
-                    Console.WriteLine($"\nLap time {timeSpan1.ToString("ss")}");
-                    Console.ReadKey();
-
-                }
-                else if ((key.Key == ConsoleKey.Spacebar))
-                {
-                    DateTime stopTime = DateTime.Now;
-                    TimeSpan timeSpan = stopTime - startTime;
-                    Console.WriteLine($"\nLap time {timeSpan.ToString("ss")}");
-                }
+            //Задача 3
+            //Console.WriteLine("Task3");
 
 
-                //Задача 4
+            //Console.WriteLine("Enter a key");
+            //ConsoleKeyInfo key = Console.ReadKey();
+            //DateTime startTime = DateTime.Now;
 
-                Console.WriteLine("Task4");
-                string path = @"C:\Users\nosychev\Desktop\Programmatic\С#\HomeWork3\HomeWork3";
-                File.Create("text.doc");
+            //while (true)
+            //{
+            //    DateTime startTime1 = DateTime.Now;
+            //    key = Console.ReadKey();
+
+            //    if (key.Key == ConsoleKey.Enter)
+            //    {
+            //        DateTime stopTime1 = DateTime.Now;
+            //        TimeSpan timeSpan1 = stopTime1 - startTime1;
+            //        Console.WriteLine($"\nLap time {timeSpan1.ToString("ss")}");
+            //        Console.ReadKey();
+
+            //    }
+            //    else if ((key.Key == ConsoleKey.Spacebar))
+            //    {
+            //        DateTime stopTime = DateTime.Now;
+            //        TimeSpan timeSpan = stopTime - startTime;
+            //        Console.WriteLine($"\nLap time {timeSpan.ToString("ss")}");
+            //    }
+
+
+            //Задача 4
+
+            Console.WriteLine("Task4");
+
+            //string path = @"C:\Users\nosychev\Desktop\Programmatic\С#\HomeWork3\HomeWork3";
+            //string text = "Значения холодной воды за год:";
+            //try
+            //{
+            //    using (StreamWriter sw = new StreamWriter(path, false, Encoding.Default))
+            //    {
+            //        sw.WriteLine(text);
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //    //}
+
                 int _month = 1;
                 string myMonth;
                 List<int> coldWater = new List<int>();
@@ -212,12 +227,14 @@ namespace HomeWork3
 
                 int sumCold = 0;
                 int sumHot = 0;
+
+
                 Console.WriteLine("Значения холодной воды за год: ");
+
+
                 for (int i = 0; i < coldArray.Length; i++)
                 {
                     _cold = coldArray[i];
-                    // File.WriteAllText(path, counterArr[i, j].ToString());            
-                    // Console.WriteLine($"Пытаюсь добавить значение холодной {_cold} и горячей {_hot} воды");
                     if (_meterReader.addMetric(_cold, _hot))
                     {
                     }
@@ -238,6 +255,7 @@ namespace HomeWork3
                     }
                     sumCold += coldArray[i];
                 }
+
                 _month = 1;
                 Console.WriteLine("Значения горячей воды за год: ");
                 for (int j = 0; j < hotArray.Length; j++)
@@ -272,7 +290,9 @@ namespace HomeWork3
         }
     }
 
-}
+
+
+
 
 
 
