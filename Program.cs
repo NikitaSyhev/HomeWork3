@@ -73,7 +73,7 @@ namespace HomeWork3
                 }
             }
         }
-        public bool addMetric(int _cold, int _hot)
+        public bool addMetric(int _cold = 0, int _hot = 0)
         {
             bool result = false;
             int _lastElement = myBillList.Count;
@@ -106,151 +106,173 @@ namespace HomeWork3
         }
         static void Main(string[] args)
         {
-            ////Задача 1
-            //Console.WriteLine("Task 1");
+            //Задача 1
+            Console.WriteLine("Task 1");
 
-            //string number;
-            //Console.WriteLine("Enter a 4 digit number");
-            //number = Console.ReadLine();
-            //if (number.Length == 4)
-            //{
-            //    for (int i = number.Length - 1; i >= 0; i--)
-            //    {
-            //        Console.Write(number[i]);
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Error");
-            //}
-            //Console.WriteLine("\n");
-
-            //Console.WriteLine("Task2");
-
-            //Console.WriteLine("Enter a 6 digit number");
-            //string number2;
-            //int tmp;
-            //number2 = Console.ReadLine();
-            //if (number2.Length == 6)
-            //{
-            //    for (int i = 0; i < number2.Length; i++)
-            //    {
-            //        tmp = Convert.ToInt32(number2[i]);
-            //        if (number2[i] % 2 == 0)
-            //        {
-            //            Console.WriteLine(number2[i]);
-            //        }
-
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Error");
-            //}
-
-
-            ////Задача 2
-            //Console.WriteLine("Task3");
-
-
-            //Console.WriteLine("Enter a key");
-            //ConsoleKeyInfo key = Console.ReadKey();
-            //DateTime startTime = DateTime.Now;
-
-            //while (true)
-            //{
-            //    DateTime startTime1 = DateTime.Now;
-            //    key = Console.ReadKey();
-
-            //    if (key.Key == ConsoleKey.Enter)
-            //    {
-            //        DateTime stopTime1 = DateTime.Now;
-            //        TimeSpan timeSpan1 = stopTime1 - startTime1;
-            //        Console.WriteLine($"\nLap time {timeSpan1.ToString("ss")}");
-            //        Console.ReadKey();
-
-            //    }
-            //    else if ((key.Key == ConsoleKey.Spacebar))
-            //    {
-            //        DateTime stopTime = DateTime.Now;
-            //        TimeSpan timeSpan = stopTime - startTime;
-            //        Console.WriteLine($"\nLap time {timeSpan.ToString("ss")}");
-            //    }
-
-
-            //Задача 4
-
-            Console.WriteLine("Task4");
-            string path = @"C:\Users\nosychev\Desktop\Programmatic\С#\HomeWork3\HomeWork3";
-            File.Create("text.doc");
-
-
-
-
-            int[,] counterArr = new int[,] { { 12, 10 }, { 13, 11 }, { 14, 13 }, { 15, 21 }, { 16, 22 }, { 17, 23 }, { 18, 24 }, { 19, 25 }, { 20, 24 }, { 21, 25 }, { 22, 26 }, { 23, 27 } };
-            int _row = counterArr.GetUpperBound(0); 
-            int _column = counterArr.Length / _row; 
-            int _cold = 0, _hot = 0;
-            myCounter _meterReader = new myCounter(0, 0);
-            int sum = 0;
-            for (int i = 0; i < _row; i++)
+            string number;
+            Console.WriteLine("Enter a 4 digit number");
+            number = Console.ReadLine();
+            if (number.Length == 4)
             {
-                for (int j = 0; j < _column; j++)
+                for (int i = number.Length - 1; i >= 0; i--)
                 {
-                    if (j % 2 == 0)
+                    Console.Write(number[i]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+            Console.WriteLine("\n");
+
+            Console.WriteLine("Task2");
+
+            Console.WriteLine("Enter a 6 digit number");
+            string number2;
+            int tmp;
+            number2 = Console.ReadLine();
+            if (number2.Length == 6)
+            {
+                for (int i = 0; i < number2.Length; i++)
+                {
+                    tmp = Convert.ToInt32(number2[i]);
+                    if (number2[i] % 2 == 0)
                     {
-                        _cold = counterArr[i, j];
-                        Console.Write("холодная = " + counterArr[i, j] + " ");
-                       // File.WriteAllText(path, counterArr[i, j].ToString());
+                        Console.WriteLine(number2[i]);
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
+
+            //Задача 2
+            Console.WriteLine("Task3");
+
+
+            Console.WriteLine("Enter a key");
+            ConsoleKeyInfo key = Console.ReadKey();
+            DateTime startTime = DateTime.Now;
+
+            while (true)
+            {
+                DateTime startTime1 = DateTime.Now;
+                key = Console.ReadKey();
+
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    DateTime stopTime1 = DateTime.Now;
+                    TimeSpan timeSpan1 = stopTime1 - startTime1;
+                    Console.WriteLine($"\nLap time {timeSpan1.ToString("ss")}");
+                    Console.ReadKey();
+
+                }
+                else if ((key.Key == ConsoleKey.Spacebar))
+                {
+                    DateTime stopTime = DateTime.Now;
+                    TimeSpan timeSpan = stopTime - startTime;
+                    Console.WriteLine($"\nLap time {timeSpan.ToString("ss")}");
+                }
+
+
+                //Задача 4
+
+                Console.WriteLine("Task4");
+                string path = @"C:\Users\nosychev\Desktop\Programmatic\С#\HomeWork3\HomeWork3";
+                File.Create("text.doc");
+                int _month = 1;
+                string myMonth;
+                List<int> coldWater = new List<int>();
+                List<int> hotWater = new List<int>();
+                int monthCounter = 1;
+
+                do
+                {
+                    Console.Write("Добавьте значение холодной воды за текущий месяц: ");
+                    int _coldWater = int.Parse(Console.ReadLine());
+                    coldWater.Add(_coldWater);
+                    Console.Write("Добавьте значение горячей воды за текущий месяц: ");
+                    int _hotWater = int.Parse(Console.ReadLine());
+                    hotWater.Add(_hotWater);
+                    monthCounter++;
+                } while (monthCounter < 13);
+
+                int[] coldArray = new int[12];
+                coldWater.CopyTo(coldArray);
+
+                int[] hotArray = new int[12];
+                hotWater.CopyTo(hotArray);
+
+
+                int _cold = 0, _hot = 0;
+                myCounter _meterReader = new myCounter(0, 0);
+
+                int sumCold = 0;
+                int sumHot = 0;
+                Console.WriteLine("Значения холодной воды за год: ");
+                for (int i = 0; i < coldArray.Length; i++)
+                {
+                    _cold = coldArray[i];
+                    // File.WriteAllText(path, counterArr[i, j].ToString());            
+                    // Console.WriteLine($"Пытаюсь добавить значение холодной {_cold} и горячей {_hot} воды");
+                    if (_meterReader.addMetric(_cold, _hot))
+                    {
                     }
                     else
                     {
-                        _hot = counterArr[i, j];
-                        Console.Write("горячая = " + counterArr[i, j] + ".");
-                        // File.WriteAllText(path, counterArr[i, j].ToString());
+                        Console.WriteLine($"Значение холодной {_cold} воды не добавлено");
                     }
-                    sum += counterArr[i,j];
+                    _meterReader.getValues().RemoveAt(0);
+                    {
+                        foreach (var item in _meterReader.getValues())
+                        {
+                            myMonth = Enum.GetName(typeof(Month), _month);
+
+                            Console.WriteLine($"За {myMonth}: \t холодная = {item.Cold.convert2Str()}");
+                            _month++;
+                        }
+
+                    }
+                    sumCold += coldArray[i];
                 }
-                Console.WriteLine($"Пытаюсь добавить значение холодной {_cold} и горячей {_hot} воды");
-                if (_meterReader.addMetric(_cold, _hot))
+                _month = 1;
+                Console.WriteLine("Значения горячей воды за год: ");
+                for (int j = 0; j < hotArray.Length; j++)
                 {
-                    Console.WriteLine($"Добавлено значение холодной {_cold} и горячей {_hot} воды");
+                    _hot = hotArray[j];
+                    if (_meterReader.addMetric(_cold, _hot))
+                    {
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Значение горячей {_hot} воды не добавлено");
+                    }
+                    _meterReader.getValues().RemoveAt(0);
+                    {
+
+                        foreach (var item in _meterReader.getValues())
+                        {
+                            myMonth = Enum.GetName(typeof(Month), _month);
+
+                            Console.WriteLine($"За {myMonth}: \t горячая = {item.Hot.convert2Str()}");
+                            _month++;
+                        }
+                    }
+                    sumHot += hotArray[j];
                 }
-                else
-                {
-                    Console.WriteLine($"Значение холодной {_cold} и горячей {_hot} воды не добавлено");
-                }
-                Console.WriteLine();
-                
-            }
-            
-            Console.WriteLine($"\n\nИтог: {sum}");
-            int _month = 1;
-            string myMonth;
-            _meterReader.getValues().RemoveAt(0);
-
-       
-
-            {
-                foreach (var item in _meterReader.getValues())
-                {
-                    myMonth = Enum.GetName(typeof(Month), _month);
-                    Console.WriteLine($"За {myMonth} \t холодная = {item.Cold.convert2Str()} горячая = {item.Hot.convert2Str()}");
-                    _month++;
+                Console.WriteLine($"\n\nИтог - холодной воды за год: {sumCold}, горячей воды за год: {sumHot}");
 
 
-                }
-               
-            }
-            
-
-                  Console.ReadLine();
+                Console.ReadLine();
 
             }
         }
     }
 
-
+}
 
 
 
